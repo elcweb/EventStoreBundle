@@ -1,0 +1,27 @@
+{
+    "name": "elcweb/eventstore-bundle",
+    "type": "symfony-bundle",
+    "description": "Elcweb Event Store Bundle",
+    "keywords": [],
+    "homepage": "http://elcweb.ca",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Etienne Lachance",
+            "email": "el@elcweb.ca"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "jmikola/wildcard-event-dispatcher-bundle": "dev-master"
+    },
+    "suggest": {
+        "symfony/event-dispatcher": "",
+        "jms/serializer-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Elcweb\\EventStoreBundle\\": "" }
+    },
+    "target-dir": "Elcweb/EventStoreBundle",
+    "minimum-stability": "dev",
+}
