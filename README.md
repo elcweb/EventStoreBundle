@@ -1,6 +1,9 @@
 ElcwebEventStoreBundle
 ======================
 
+[![Latest Stable Version](https://poser.pugx.org/elcweb/eventstore-bundle/v/stable.png)](https://packagist.org/packages/elcweb/eventstore-bundle)
+[![Total Downloads](https://poser.pugx.org/elcweb/eventstore-bundle/downloads.png)](https://packagist.org/packages/elcweb/eventstore-bundle)
+
 Installation
 ------------
 
