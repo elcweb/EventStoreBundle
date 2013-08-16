@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
         "jmikola/wildcard-event-dispatcher-bundle": "dev-master"
     },
     "suggest": {
