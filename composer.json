@@ -23,5 +23,5 @@
         "psr-0": { "Elcweb\\EventStoreBundle\\": "" }
     },
     "target-dir": "Elcweb/EventStoreBundle",
-    "minimum-stability": "dev",
+    "minimum-stability": "dev"
 }
