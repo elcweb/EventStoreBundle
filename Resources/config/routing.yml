@@ -1,0 +1,4 @@
+elcweb_event_store:
+    resource: "@ElcwebEventStoreBundle/Controller/"
+    type:     annotation
+    prefix:   /

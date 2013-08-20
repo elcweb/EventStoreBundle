@@ -1,0 +1,28 @@
+{% extends '::layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li class="active">Events</li>
+{% endblock %}
+
+{% block content %}{% spaceless %}
+<table class="tablesorter table table-striped table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.createdAt|date("Y-m-d h:m:s") }}</td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.username }}</td>
+                <td>{{ event.classname }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endspaceless %}{% endblock content %}
