@@ -2,7 +2,7 @@
 namespace Elcweb\EventStoreBundle\EventListener;
 
 use Doctrine\ORM\EntityManager;
-use Elcweb\Bundle\EventStoreBundle\Entity\Event;
+use Elcweb\EventStoreBundle\Entity\Event;
 
 class Store extends BaseEventListener
 {
