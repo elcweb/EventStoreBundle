@@ -29,11 +29,11 @@ class Event
     private $name;
 
     /**
-     * @var datetime
+     * @var datetime $created
      *
-     * @ORM\Column(name="timestamp", type="datetime")
+     * @ORM\Column(type="datetime")
      */
-    private $timestamp;
+    private $createdAt;
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class Event
 
     public function __construct()
     {
-        $this->setTimestamp(new \DateTime());
+        $this->setCreatedAt(new \DateTime());
     }
 
     /**
@@ -95,26 +95,26 @@ class Event
     }
 
     /**
-     * Set timestamp
+     * Set createdAt
      *
-     * @param integer $timestamp
+     * @param integer $createdAt
      * @return Event
      */
-    public function setTimestamp($timestamp)
+    public function setCreatedAt($createdAt)
     {
-        $this->timestamp = $timestamp;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get timestamp
+     * Get createdAt
      *
-     * @return integer
+     * @return \DateTime
      */
-    public function getTimestamp()
+    public function getCreatedAt()
     {
-        return $this->timestamp;
+        return $this->createdAt;
     }
 
     /**
