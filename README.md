@@ -7,7 +7,7 @@ ElcwebEventStoreBundle
 Installation
 ------------
 
-All the installation instructions are located in [documentation](https://github.com/elcweb/ElcwebEventStoreBundle/blob/master/Resources/doc/installation.md).
+All the installation instructions are located in [documentation](https://github.com/elcweb/EventStoreBundle/blob/master/Resources/doc/installation.md).
 
 License
 -------
