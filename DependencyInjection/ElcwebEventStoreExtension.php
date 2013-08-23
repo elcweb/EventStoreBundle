@@ -25,10 +25,9 @@ class ElcwebEventStoreExtension extends Extension
 
         // Log
         $container->setParameter('elcweb.listener.log.class', 'Elcweb\EventStoreBundle\EventListener\Log');
-        $container->register('elcweb.listener.log', '%elcweb.listener.store.class%')
+        $container->register('elcweb.listener.log', '%elcweb.listener.log.class%')
             ->addArgument(new Reference("logger"))
             ->addArgument(new Reference("serializer"))
-            ->addArgument(new Reference("doctrine.orm.default_entity_manager"))
             ->addArgument(new Reference("security.context"))
         ;
 
@@ -37,8 +36,8 @@ class ElcwebEventStoreExtension extends Extension
         $container->register('elcweb.listener.store', '%elcweb.listener.store.class%')
             ->addArgument(new Reference("logger"))
             ->addArgument(new Reference("serializer"))
-            ->addArgument(new Reference("doctrine.orm.default_entity_manager"))
             ->addArgument(new Reference("security.context"))
+            ->addArgument(new Reference("doctrine.orm.default_entity_manager"))
         ;
 
         // Set dynamic event prefix to events
