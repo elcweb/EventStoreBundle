@@ -18,7 +18,7 @@ class Store extends BaseEventListener
         $this->em = $em;
     }
 
-    public function onEvent($event)
+    public function onEvent(Event $event)
     {
         $data = $this->serializer->serialize($event->toArray(), 'json');
 
