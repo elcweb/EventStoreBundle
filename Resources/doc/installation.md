@@ -60,7 +60,7 @@ of datastore you are using.
 
 ``` yaml
 # app/config/config.yml
-elcweb_eventstore:
+elcweb_event_store:
     prefix: [] # add a list of you prefix exemple elcweb.# will get all event starting with elcweb.
 ```
 
