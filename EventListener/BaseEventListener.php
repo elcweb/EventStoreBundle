@@ -1,7 +1,7 @@
 <?php
 namespace Elcweb\EventStoreBundle\EventListener;
 
-use Elcweb\EventStoreBundle\Entity\Event;
+use Elcweb\EventStoreBundle\Event\BaseEvent;
 use JMS\Serializer\Serializer;
 use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -19,7 +19,7 @@ class BaseEventListener
         $this->security   = $security;
     }
 
-    public function onEvent(Event $event)
+    public function onEvent(BaseEvent $event)
     {
 
     }
