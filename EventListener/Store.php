@@ -1,10 +1,11 @@
 <?php
+
 namespace Elcweb\EventStoreBundle\EventListener;
 
 use Doctrine\ORM\EntityManager;
-use Elcweb\EventStoreBundle\Event\BaseEvent;
 use JMS\Serializer\Serializer;
 use Symfony\Bridge\Monolog\Logger;
+use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Security\Core\SecurityContext;
 
 use Elcweb\EventStoreBundle\Entity\Event;
@@ -19,9 +20,9 @@ class Store extends BaseEventListener
         $this->em = $em;
     }
 
-    public function onEvent(BaseEvent $event)
+    public function onEvent(GenericEvent $event)
     {
-        $data = $this->serializer->serialize($event->toArray(), 'json');
+        $data = $this->serializer->serialize($event->getArguments(), 'json');
 
         $token = $this->security->getToken();
         if ($token) {
