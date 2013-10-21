@@ -2,12 +2,12 @@
 namespace Elcweb\EventStoreBundle\EventListener;
 
 use Doctrine\ORM\EntityManager;
-use Elcweb\EventStoreBundle\Event\BaseEvent;
 use Symfony\Bridge\Monolog\Logger;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 class Log extends BaseEventListener
 {
-    public function onEvent(BaseEvent $event)
+    public function onEvent(GenericEvent $event)
     {
         $token = $this->security->getToken();
         if ($token) {
