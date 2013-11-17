@@ -2,7 +2,9 @@
 
 namespace Elcweb\EventStoreBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Event
@@ -29,9 +31,10 @@ class Event
     private $name;
 
     /**
-     * @var datetime $created
+     * @var \DateTime
      *
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
 
@@ -56,10 +59,6 @@ class Event
      */
     private $data;
 
-    public function __construct()
-    {
-        $this->setCreatedAt(new \DateTime());
-    }
 
     /**
      * Get id
