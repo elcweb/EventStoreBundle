@@ -36,6 +36,7 @@ class Store extends BaseEventListener
         $elem->setClassname(get_class($event));
         $elem->setData($data);
         $elem->setUsername($user);
+        $elem->setSubject($event->getSubject());
 
         $this->em->persist($elem);
         $this->em->flush();

@@ -31,6 +31,13 @@ class Event
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $subject;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
@@ -91,6 +98,29 @@ class Event
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     * @return Event
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
     }
 
     /**
