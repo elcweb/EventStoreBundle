@@ -5,24 +5,37 @@
 {% endblock %}
 
 {% block content %}{% spaceless %}
-<table class="tablesorter table table-striped table-bordered table-condensed">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Class</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for event in events %}
+{% if events %}
+    {# display navigation #}
+    <div class="pagination" id="pagination">
+        {{ knp_pagination_render(events) }}
+    </div>
+
+    <table class="tablesorter table table-striped table-bordered table-condensed">
+        <thead>
             <tr>
-                <td>{{ event.createdAt|date("Y-m-d h:m:s") }}</td>
-                <td>{{ event.name }}</td>
-                <td>{{ event.username }}</td>
-                <td>{{ event.classname }}</td>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Class</th>
+                <th></th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.createdAt|date("Y-m-d h:m:s") }}</td>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.username }}</td>
+                    <td>{{ event.classname }}</td>
+                    <td><a href="{{ path('elcweb_eventstore_admin_show', { event: event.id }) }}" class="btn btn-primary">Show</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(events) }}
+    </div>
+{% endif %}
 {% endspaceless %}{% endblock content %}

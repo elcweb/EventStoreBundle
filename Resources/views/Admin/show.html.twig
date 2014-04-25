@@ -1,0 +1,57 @@
+{% extends '::layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ path('elcweb_eventstore_admin_index') }}">Events</a></li>
+    <li class="active">Show #{{ event.id }}</li>
+{% endblock %}
+
+{% block content %}{% spaceless %}
+<table class="table">
+    <tbody>
+            <tr>
+                <th>Date</th>
+                <td>{{ event.createdAt|date("Y-m-d h:m:s") }}</td>
+            </tr>
+            <tr>
+                <th>Event Name</th>
+                <td>{{ event.name }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ event.username }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ event.classname }}</td>
+            </tr>
+    </tbody>
+</table>
+
+<div id="jsoneditor"></div>
+{% endspaceless %}{% endblock content %}
+
+{% block stylesheets_head %}
+{% stylesheets '@ElcwebEventStoreBundle/Resources/public/css/jsoneditor.css' %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+{% endblock stylesheets_head %}
+
+
+{% block javascript_foot %}
+{% javascripts
+    '@ElcwebEventStoreBundle/Resources/public/js/jsoneditor.js'
+     %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script type="text/javascript">
+    var container = document.getElementById('jsoneditor');
+
+    var options = {
+        mode: 'view'
+    };
+
+    var json = {{ event.data|raw }};
+
+    var editor = new jsoneditor.JSONEditor(container, options, json);
+</script>
+{% endblock %}
