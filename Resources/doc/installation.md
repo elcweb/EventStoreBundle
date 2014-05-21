@@ -22,6 +22,7 @@ Add ElcwebEventStoreBundle in your composer.json:
 ```js
 {
     "require": {
+        "jms/serializer-bundle": "dev-master",
         "elcweb/eventstore-bundle": "dev-master"
     }
 }
@@ -47,7 +48,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Jmikola\WildcardEventDispatcherBundle\JmikolaWildcardEventDispatcherBundle(),
+        new JMS\SerializerBundle\JMSSerializerBundle(),
         new Elcweb\EventStoreBundle\ElcwebEventStoreBundle(),
     );
 }

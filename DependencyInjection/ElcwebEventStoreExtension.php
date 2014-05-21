@@ -23,27 +23,11 @@ class ElcwebEventStoreExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
-        // Log
-        $container->setParameter('elcweb.listener.log.class', 'Elcweb\EventStoreBundle\EventListener\Log');
-        $container->register('elcweb.listener.log', '%elcweb.listener.log.class%')
-            ->addArgument(new Reference("logger"))
-            ->addArgument(new Reference("serializer"))
-            ->addArgument(new Reference("security.context"))
-        ;
-
-        // Store
-        $container->setParameter('elcweb.listener.store.class', 'Elcweb\EventStoreBundle\EventListener\Store');
-        $container->register('elcweb.listener.store', '%elcweb.listener.store.class%')
-            ->addArgument(new Reference("logger"))
-            ->addArgument(new Reference("serializer"))
-            ->addArgument(new Reference("security.context"))
+        // RabbitMQ Store
+        $container->setParameter('elcweb.consumer.store.class', 'Elcweb\EventStoreBundle\Consumer\EventStoreConsumer');
+        $container->register('elcweb.eventstore.consumer.store', '%elcweb.consumer.store.class%')
             ->addArgument(new Reference("doctrine.orm.default_entity_manager"))
+            ->addArgument(new Reference("serializer"))
         ;
-
-        // Set dynamic event prefix to events
-        foreach ($config['prefix'] as $prefix) {
-            $container->getDefinition('elcweb.listener.log')->addTag('kernel.event_listener', array('event' => $prefix.'.#', 'method' => 'onEvent'));
-            $container->getDefinition('elcweb.listener.store')->addTag('kernel.event_listener', array('event' => $prefix.'.#', 'method' => 'onEvent'));
-        }
     }
 }
