@@ -27,11 +27,13 @@ class EventStoreConsumer implements ConsumerInterface
         try {
             $data = $this->serializer->deserialize($msg->body, 'array', 'json');
 
+            $username = (array_key_exists('username', $data)) ? $data['username'] : 'N/A';
+
             $elem = new Event();
             $elem->setName($routingKey);
             $elem->setClassname('');
             $elem->setData($msg->body);
-            $elem->setUsername($data['username']);
+            $elem->setUsername($username);
 
             $this->em->persist($elem);
             $this->em->flush();
