@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * @Route("/admin/eventstore")
@@ -17,7 +16,6 @@ class AdminController extends Controller
     /**
      * @Route("/")
      * @Template()
-     * @Secure(roles="ROLE_ADMIN")
      */
     public function indexAction(Request $request)
     {
@@ -45,7 +43,6 @@ class AdminController extends Controller
     /**
      * @Route("/show/{event}")
      * @Template()
-     * @Secure(roles="ROLE_ADMIN")
      */
     public function showAction(Event $event)
     {
